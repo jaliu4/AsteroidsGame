@@ -25,7 +25,7 @@ public void keyTyped()
    if(key == 'r')
    {
      sagiri.setDirectionX(0);
-     sagiri.setDirectionX(0);
+     sagiri.setDirectionY(0);
      sagiri.setPointDirection((int)(Math.random()*359 + 1));
      sagiri.setX((int)(Math.random()*600));
      sagiri.setY((int)(Math.random()*600)); 
