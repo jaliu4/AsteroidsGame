@@ -1,12 +1,17 @@
 Spaceship sagiri = new Spaceship();
 Stars[] glitter = new Stars[100];
+Asteroid[] megumi = new Asteroid[10];
 public void setup() 
 {
   background(0);
   size(600,600);
-  for(int y = 0; y < 100; y = y + 1)
+  for(int y = 0; y < glitter.length; y = y + 1)
   {
     glitter[y] = new Stars();
+  }
+  for(int i = 0; i < megumi.length; i = i + 1)
+  {
+    megumi[i] = new Asteroid();
   }
 }
 public void draw() 
@@ -18,9 +23,14 @@ public void draw()
   {
     glitter[y].show();
   }
+  for(int i = 0; i < megumi.length; i = i + 1)
+  {
+    megumi[i].show();
+    megumi[i].move();
+  }
 }
 
-public void keyTyped()
+public void keyPressed()
 { 
    if(key == 'r')
    {
