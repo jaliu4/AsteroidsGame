@@ -1,6 +1,8 @@
 Spaceship sagiri = new Spaceship();
 Stars[] glitter = new Stars[100];
-Asteroid[] megumi = new Asteroid[10];
+//Asteroid[] megumi = new Asteroid[10];
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+
 public void setup() 
 {
   background(0);
@@ -9,9 +11,13 @@ public void setup()
   {
     glitter[y] = new Stars();
   }
-  for(int i = 0; i < megumi.length; i = i + 1)
+  //for(int i = 0; i < megumi.length; i = i + 1)
+  //{
+    //megumi[i] = new Asteroid();
+  //}
+  for(int a = 0; a < 10; a++)
   {
-    megumi[i] = new Asteroid();
+    rocks.add(a, new Asteroid());
   }
 }
 public void draw() 
@@ -23,10 +29,23 @@ public void draw()
   {
     glitter[y].show();
   }
-  for(int i = 0; i < megumi.length; i = i + 1)
+  //for(int i = 0; i < megumi.length; i = i + 1)
+  //{
+    //megumi[i].show();
+    //megumi[i].move();
+  //}
+  for(int i = 0; i < rocks.size(); i++)
   {
-    megumi[i].show();
-    megumi[i].move();
+    rocks.get(i).show();
+    rocks.get(i).move();
+  }
+  for(int i = 0; i < rocks.size(); i++)
+  {
+    float d = dist(sagiri.getX(), sagiri.getY(), rocks.get(i).getX(), rocks.get(i).getY());
+    if(d < 17)
+    {
+      rocks.remove(i);
+    }
   }
 }
 
@@ -42,19 +61,19 @@ public void keyPressed()
    }
    if(key == 'w')
    {
-     sagiri.accelerate(1);
+     sagiri.accelerate(.5);
    }
    if(key == 's')
    {
-     sagiri.accelerate(-1);
+     sagiri.accelerate(-.5);
    }
    if(key == 'a')
    {
-     sagiri.turn(-20);
+     sagiri.turn(-10);
    }
    if(key == 'd')
    {
-     sagiri.turn(20);
+     sagiri.turn(10);
    }
    if(key == 'f')
    {
