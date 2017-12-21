@@ -85,15 +85,6 @@ public void keyPressed()
      sagiri.setDirectionX(0);
      sagiri.setDirectionY(0);
    }
-   if(key == 'c')
-   {
-   for(int b = 0; b < 1; b++)
-    {
-    pewpew.add(b, new Bullets());
-        pewpew.get(b).show();
-    pewpew.get(b).move();
-    }
-   }
    
 
 } 
