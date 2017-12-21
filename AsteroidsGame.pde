@@ -2,6 +2,8 @@ Spaceship sagiri = new Spaceship();
 Stars[] glitter = new Stars[100];
 //Asteroid[] megumi = new Asteroid[10];
 ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
+ArrayList <Bullets> pewpew = new ArrayList <Bullets>();
+
 
 public void setup() 
 {
@@ -19,6 +21,7 @@ public void setup()
   {
     rocks.add(a, new Asteroid());
   }
+  
 }
 public void draw() 
 {
@@ -47,6 +50,8 @@ public void draw()
       rocks.remove(i);
     }
   }
+  
+
 }
 
 public void keyPressed()
@@ -80,4 +85,15 @@ public void keyPressed()
      sagiri.setDirectionX(0);
      sagiri.setDirectionY(0);
    }
+   if(key == 'c')
+   {
+   for(int b = 0; b < 1; b++)
+    {
+    pewpew.add(b, new Bullets());
+        pewpew.get(b).show();
+    pewpew.get(b).move();
+    }
+   }
+   
+
 } 
